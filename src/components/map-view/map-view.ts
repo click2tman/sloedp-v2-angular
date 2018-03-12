@@ -8,6 +8,7 @@ import { DataProvider } from '../../providers/data/data';
 import { icon, latLng, Layer, marker, geoJSON, tileLayer } from 'leaflet';
 
 let nationGeoJSON = require("../../assets/maps/nation.json")
+let regionGeoJSON = require("../../assets/maps/region.json")
 let districtGeoJSON = require("../../assets/maps/district.json")
 let district2018GeoJSON = require("../../assets/maps/district-2018.json")
 
@@ -184,13 +185,10 @@ export class MapViewComponent {
 				}
 			}
 
-		    var suffix = '';
-		    if (vm.year == '2018' && vm.region == 'district')
-		    	suffix = "-2018";
-
-		    if (vm.region == "nation" || vm.region == "district") {
+		    if (vm.region == "nation" || vm.region == "region" || vm.region == "district") {
 		    	var geoData;
 		    	if (vm.region == 'nation') geoData = nationGeoJSON['features']
+		    	if (vm.region == 'region') geoData = regionGeoJSON['features']
 		    	if (vm.region == 'district' && vm.year != '2018') geoData = districtGeoJSON['features']
 		    	if (vm.region == 'district' && vm.year == '2018') geoData = district2018GeoJSON['features']
 
