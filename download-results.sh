@@ -28,8 +28,8 @@ fpollingcentre=/Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/polling-cent
 ppollingcentre=
 
 #Download all Presidential results by national, regional and district
-rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-president-election-results/all-president-election-results-*.json
-rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-election-results/all-president-election-results-*.json
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-president-election-results/all-president-election-results.json
+#rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-election-results/all-president-election-results-*.json
 cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-president-election-results
 wget $ppresident/all-president-election-results.json
 cp all-president-election-results.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-election-results/
