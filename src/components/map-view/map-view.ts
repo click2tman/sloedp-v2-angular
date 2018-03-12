@@ -198,32 +198,11 @@ export class MapViewComponent {
 		    			layer.on('click', function() {
 		    				var boundary_key = vm.makeKey(feature.properties.Name)
 		    				var boundary = vm.boundary_json[boundary_key]
-		    				if (boundary) {
-		    					vm.result.ElectionResults = boundary.candidates;
-								vm.result.ValidVotes = boundary.votes;
-								if (vm.year == '2018')
-									if (vm.result.TotalVotes == 0)
-										vm.result.VotesPecentage = "0%"
-									else {
-										vm.result.VotesPecentage = ((vm.result.ValidVotes / vm.result.TotalVotes) * 100).toFixed(2) + '%'
-									}
-								else
-									vm.result.VotesPecentage = "100%"
-							    if (boundary.votes > 0) vm.noWinner = false;
-								else vm.noWinner = true;
-							    vm.events.publish('boundary:select', boundary.name);
-		    				}
-		    				else {
-		    					vm.result.ElectionResults = []
-		    					vm.result.ValidVotes = 0
-		    					vm.result.VotesPecentage = 0
-		    					vm.noWinner = true;
-		    				}
+		    				vm.applyResult(boundary)
 		    			})
 		    		},
 		    		style: (feature) => {
 		    			var boundary_key = vm.makeKey(feature.properties.Name)
-		    			
 		    			if (vm.boundary_json[boundary_key])
 		    				return { color: vm.colorFilter(vm.boundary_json[boundary_key].candidates[0].CandidatePoliticalPartyColor) }
 		    			else
@@ -245,18 +224,7 @@ export class MapViewComponent {
 							shadowUrl: '../../assets/imgs/marker-shadow.png'
 						})
 					}).bindPopup(boundary.name).on('click', () => {
-	    				vm.result.ElectionResults = boundary.candidates;
-						vm.result.ValidVotes = boundary.votes;
-						if (vm.year == '2018')
-							if (vm.result.TotalVotes == 0)
-								vm.result.VotesPecentage = "0%"
-							else {
-								vm.result.VotesPecentage = ((vm.result.ValidVotes / vm.result.TotalVotes) * 100).toFixed(2) + '%'
-							}
-						else
-							vm.result.VotesPecentage = "100%"
-					    if (boundary.votes > 0) vm.noWinner = false;
-						else vm.noWinner = true;
+	    				vm.applyResult(boundary)
 					})
 					layers.push(markerBoundary)
 		    	}
@@ -264,6 +232,30 @@ export class MapViewComponent {
 		    }
 			loadingPopup.dismiss();
 		});
+	}
+
+	applyResult(boundary) {
+		if (boundary) {
+			this.result.ElectionResults = boundary.candidates;
+			this.result.ValidVotes = boundary.votes;
+			if (this.year == '2018')
+				if (this.result.TotalVotes == 0)
+					this.result.VotesPecentage = "0%"
+				else {
+					this.result.VotesPecentage = ((this.result.ValidVotes / this.result.TotalVotes) * 100).toFixed(2) + '%'
+				}
+			else
+				this.result.VotesPecentage = "100%"
+		    if (boundary.votes > 0) this.noWinner = false;
+			else this.noWinner = true;
+		    this.events.publish('boundary:select', boundary.name);
+		}
+		else {
+			this.result.ElectionResults = []
+			this.result.ValidVotes = 0
+			this.result.VotesPecentage = 0
+			this.noWinner = true;
+		}
 	}
 
 	applyMap(layers) {
