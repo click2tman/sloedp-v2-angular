@@ -17,11 +17,16 @@ map-view {
 			& > div {
 				padding-top: 10px;
 			}
-			.party-card {
-				width: 60%;
-				height: 12px;
-				margin: auto;
-				margin-top: 2px;
+			.election-parties {
+				.party-card {
+					width: 60%;
+					height: 12px;
+					margin: auto;
+					margin-top: 2px;
+				}
+				.small {
+					font-size: 0.8rem;
+				}
 			}
 			.election-competitors {
 				font-size: 14px;

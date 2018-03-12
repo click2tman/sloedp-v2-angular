@@ -30,8 +30,8 @@ export class HeaderViewComponent {
 
     this.pages = [
       { title: 'SLOEDP Platform', component: "" },
-      { title: 'President', component: PresidentPage },
-      { title: 'Member of Parliament', component: ParliamentPage },
+      { title: 'Presidential', component: PresidentPage },
+      { title: 'Parliamentary', component: ParliamentPage },
       { title: 'Mayor/Chair', component: MayorPage },
       { title: 'Councilor', component: CouncilorPage },
       { title: 'About this app', component: AboutPage },

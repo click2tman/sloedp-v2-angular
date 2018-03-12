@@ -7,21 +7,21 @@
 <ion-header>
 	<ion-toolbar color="dark">
 
-		<a float-left (click)="gotoRoot()">
-			<ion-icon name="arrow-back" item-start></ion-icon> Skip
+		<a float-left (click)="onSkip()">
+			<ion-icon name="arrow-back" item-start></ion-icon> {{ back }}
 		</a>
 
 		<ion-title text-uppercase text-center>SLOEDP</ion-title>
 
-		<a float-right (click)="gotoRoot()">
-			Start using App <ion-icon name="arrow-forward" item-start></ion-icon>
+		<a float-right (click)="onStart()">
+			{{ next }} <ion-icon name="arrow-forward" item-start></ion-icon>
 		</a>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
-	<ion-slides pager>
+	<ion-slides (ionSlideDidChange)="slideChanged()" pager>
 
 		<ion-slide>
 			<h4 text-center>Thank you for choosing the SLOEDP Live Election Results App!</h4>

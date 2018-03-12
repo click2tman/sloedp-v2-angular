@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectorRef } from '@angular/core';
 import { NavController, LoadingController, Events } from 'ionic-angular/index';
 
 import { PartyProfilePage } from '../../pages/party-profile/party-profile';
@@ -41,7 +41,7 @@ export class MapViewComponent {
 
 	layers: Layer[];
 	
-	constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public dataService: DataProvider, public events: Events) {
+	constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public dataService: DataProvider, public events: Events, private ref: ChangeDetectorRef) {
 		this.result = {
 			'ResultStatus': "",
 			'TotalVotes': "",
@@ -256,6 +256,7 @@ export class MapViewComponent {
 			this.result.VotesPecentage = 0
 			this.noWinner = true;
 		}
+		this.ref.detectChanges()
 	}
 
 	applyMap(layers) {

@@ -28,10 +28,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'SLOEDP Platform', component: "" },
-      { title: 'President', component: PresidentPage },
-      { title: 'Member of Parliament', component: ParliamentPage },
-      { title: 'Mayor/Chair', component: MayorPage },
-      { title: 'Councilor', component: CouncilorPage },
+      { title: 'Presidential Results', component: PresidentPage },
+      { title: 'Parliamentary Results', component: ParliamentPage },
+      { title: 'Mayor/Chair Results', component: MayorPage },
+      { title: 'Councilor Results', component: CouncilorPage },
       { title: 'About this app', component: AboutPage },
       // { title: 'VillageHeadman', component: VillageHeadmanPage }
     ];
