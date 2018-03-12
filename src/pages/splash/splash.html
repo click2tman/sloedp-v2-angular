@@ -7,19 +7,15 @@
 <ion-header>
 	<ion-toolbar color="dark">
 
-		<ion-buttons start>
-			<button ion-button class="bar-button-menutoggle-md" (click)="gotoRoot()">
-				Skip <ion-icon name="arrow-back" item-start></ion-icon>
-			</button>
-		</ion-buttons>
+		<a float-left (click)="gotoRoot()">
+			<ion-icon name="arrow-back" item-start></ion-icon> Skip
+		</a>
 
-		<ion-title text-uppercase text-center>SLOEDP Results</ion-title>
+		<ion-title text-uppercase text-center>SLOEDP</ion-title>
 
-		<ion-buttons end>
-			<button ion-button class="bar-button-menutoggle-md" (click)="gotoRoot()">
-				Start using App <ion-icon name="arrow-forward" item-start></ion-icon>
-			</button>
-		</ion-buttons>
+		<a float-right (click)="gotoRoot()">
+			Start using App <ion-icon name="arrow-forward" item-start></ion-icon>
+		</a>
 	</ion-toolbar>
 </ion-header>
 

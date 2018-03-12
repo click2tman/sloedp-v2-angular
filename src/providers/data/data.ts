@@ -372,13 +372,13 @@ export class DataProvider {
           boundary_field = year < 2018 ? "ElectionRegion" : "ElectionRegion";
           break;
         case "district":
-          boundary_field = year < 2018 ? "ElectionDistrict" : "PollingCentreDistrict";
+          boundary_field = year < 2018 ? "ElectionDistrict" : "ElectionDistrict";
           break;
         case "constituency":
-          boundary_field = year < 2018 ? "ElectionConstituency" : "PollingCentreConstituency";
+          boundary_field = year < 2018 ? "ElectionConstituency" : "ElectionConstituency";
           break;
         case "ward":
-          boundary_field = year < 2018 ? "ElectionWard" : "PollingCentreWard";
+          boundary_field = year < 2018 ? "ElectionWard" : "ElectionWard";
           break;
         case "polling_centre":
           boundary_field = "PollingCentreName";

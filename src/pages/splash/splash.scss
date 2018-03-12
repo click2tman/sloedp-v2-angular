@@ -8,4 +8,14 @@ page-splash {
 			text-align: unset;
 		}
 	}
+	a {
+		color: #fff;
+		line-height: 25px;
+	}
+	ion-title {
+		padding: 0 90px 1px;
+		width: 100%;
+		position: absolute;
+		pointer-events: none;
+	}
 }
