@@ -20,7 +20,7 @@
 			<tr *ngFor="let result of Results; let i = index">
 				<td><a (click)="gotoCandidateDetail(result['Candidate_SLEOP_ID'])" [innerHtml]="result['CandidateFullName']"></a> &nbsp;<i class="fa fa-check-circle" *ngIf="i == 0 && !noWinner"></i></td>
 				<td><a (click)="gotoPartyDetail(result['CandidatePoliticalParty'])">{{ result['CandidatePoliticalParty'] }}</a></td>
-				<td>{{ result['ValidVotes'] }}</td>
+				<td>{{ result['ValidVotes'] | number }}</td>
 				<td>{{ result['ValidVotesPercentage'] }}</td>
 			</tr>
 		</tbody>
