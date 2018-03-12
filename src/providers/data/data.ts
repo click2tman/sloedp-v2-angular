@@ -66,7 +66,8 @@ export class DataProvider {
 
     return new Promise(resolve => {
       this.loadWholeResults().then(data => {
-        var type_results = Number(fields.year) >= 2018 ? data[fields.type+'_'+fields.year] : data[fields.type];
+        // var type_results = Number(fields.year) >= 2018 ? data[fields.type+'_'+fields.year] : data[fields.type];
+        var type_results = data[fields.type];
         this.results[fields.type][fields.year] = {};
         this.results[fields.type][fields.year]['all'] = this.getResultsByYear(type_results, fields.year)
         resolve('ok');
@@ -92,22 +93,24 @@ export class DataProvider {
         },
         function(callback) {
           if (!vm.results[fields.type][fields.year][fields.region]) {
-            var year = Number(fields.year);
-            if (year >= 2018) {
-              if (!vm.results[fields.type][fields.year]['polling_centre'])
-                vm.results[fields.type][fields.year]['polling_centre'] = vm.makeResultsByBoundary(vm.results[fields.type][fields.year]['all'], {year: fields.year, region: 'polling_centre'});
-              if (!vm.results[fields.type][fields.year]['ward'])
-                vm.results[fields.type][fields.year]['ward'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['polling_centre'], "ward", fields.year), {year: fields.year, region: 'ward'});
-              if (!vm.results[fields.type][fields.year]['constituency'])
-                vm.results[fields.type][fields.year]['constituency'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['ward'], "constituency", fields.year), {year: fields.year, region: 'constituency'});
-              if (!vm.results[fields.type][fields.year]['district'])
-                vm.results[fields.type][fields.year]['district'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['constituency'], "district", fields.year), {year: fields.year, region: 'district'});
-              if (!vm.results[fields.type][fields.year]['nation'])
-                vm.results[fields.type][fields.year]['nation'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['district'], "nation", fields.year), {year: fields.year, region: 'nation'});
-            }
-            else {
+            // var year = Number(fields.year);
+            // if (year >= 2018) {
+            //   if (!vm.results[fields.type][fields.year]['polling_centre'])
+            //     vm.results[fields.type][fields.year]['polling_centre'] = vm.makeResultsByBoundary(vm.results[fields.type][fields.year]['all'], {year: fields.year, region: 'polling_centre'});
+            //   if (!vm.results[fields.type][fields.year]['ward'])
+            //     vm.results[fields.type][fields.year]['ward'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['polling_centre'], "ward", fields.year), {year: fields.year, region: 'ward'});
+            //   if (!vm.results[fields.type][fields.year]['constituency'])
+            //     vm.results[fields.type][fields.year]['constituency'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['ward'], "constituency", fields.year), {year: fields.year, region: 'constituency'});
+            //   if (!vm.results[fields.type][fields.year]['district'])
+            //     vm.results[fields.type][fields.year]['district'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['constituency'], "district", fields.year), {year: fields.year, region: 'district'});
+            //   if (!vm.results[fields.type][fields.year]['region'])
+            //     vm.results[fields.type][fields.year]['region'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['district'], "region", fields.year), {year: fields.year, region: 'region'});
+            //   if (!vm.results[fields.type][fields.year]['nation'])
+            //     vm.results[fields.type][fields.year]['nation'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['region'], "nation", fields.year), {year: fields.year, region: 'nation'});
+            // }
+            // else {
               vm.results[fields.type][fields.year][fields.region] = vm.makeResultsByBoundary(vm.results[fields.type][fields.year]['all'], fields);
-            }
+            // }
           }
 
           var total_votes = 0;
@@ -336,6 +339,9 @@ export class DataProvider {
       case "nation":
         result_type = "National Results";
         break;
+      case "region":
+        result_type = "Regional Results";
+        break;
       case "district":
         result_type = "District Results";
         break;
@@ -362,6 +368,9 @@ export class DataProvider {
     if (fields.region == "nation") return "Sierra Leone";
     else {
       switch (fields.region) {
+        case "region":
+          boundary_field = year < 2018 ? "ElectionRegion" : "ElectionRegion";
+          break;
         case "district":
           boundary_field = year < 2018 ? "ElectionDistrict" : "PollingCentreDistrict";
           break;

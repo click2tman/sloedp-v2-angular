@@ -13,6 +13,16 @@
 						</div>
 					</div>
 				</a>
+				<a *ngIf="region != 'region' && regionAvailable" (click)="seletGranularity('region')">
+					<div class="senate">
+						<div class="box">
+							<h2>Results by region</h2>
+							<div class="box-content">
+								<img src="assets/imgs/map.png">
+							</div>
+						</div>
+					</div>
+				</a>
 				<a *ngIf="region != 'district' && districtAvailable" (click)="seletGranularity('district')">
 					<div class="senate">
 						<div class="box">

@@ -28,6 +28,7 @@ export class ContentViewComponent {
   results: any;
 
   nationAvailable: boolean;
+  regionAvailable: boolean;
   districtAvailable: boolean;
   constituencyAvailable: boolean;
   wardAvailable: boolean;
@@ -100,6 +101,9 @@ export class ContentViewComponent {
       case "nation":
         this.resultRegion = "National Results";
         break;
+      case "region":
+        this.resultRegion = "Results By Region";
+        break;
       case "district":
         this.resultRegion = "Results By District";
         break;
@@ -119,6 +123,7 @@ export class ContentViewComponent {
 
   setGranularityList() {
     this.nationAvailable = false;
+    this.regionAvailable = false;
     this.districtAvailable = false;
     this.constituencyAvailable = false;
     this.wardAvailable = false;
@@ -132,8 +137,9 @@ export class ContentViewComponent {
         switch (this.type) {
           case "president":
             this.nationAvailable = true;
+            this.regionAvailable = true;
             this.districtAvailable = true;
-            if (this.region != "nation" && this.region != "district")
+            if (this.region != "nation" && this.region != "region" && this.region != "district")
               this.region = "nation";
             break;
           case "parliament":
@@ -142,11 +148,6 @@ export class ContentViewComponent {
               this.region = "constituency";
             break;
           case "mayor":
-            this.districtAvailable = true;
-            if (this.region != "district")
-              this.region = "district"
-            break;
-          case "chairperson":
             this.districtAvailable = true;
             if (this.region != "district")
               this.region = "district"
@@ -163,10 +164,11 @@ export class ContentViewComponent {
       }
       else {
         this.nationAvailable = true;
+        this.regionAvailable = true;
         this.districtAvailable = true;
-        this.constituencyAvailable = true;
-        this.wardAvailable = true;
-        this.pollingCentreAvailable = true;
+        // this.constituencyAvailable = true;
+        // this.wardAvailable = true;
+        // this.pollingCentreAvailable = true;
       }
     }
   }
