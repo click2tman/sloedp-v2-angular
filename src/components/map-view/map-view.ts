@@ -200,8 +200,6 @@ export class MapViewComponent {
 		    				var boundary = vm.boundary_json[boundary_key]
 		    				vm.applyResult(boundary)
 		    			})
-		    			layer.on('mouseover', function() { layer.openPopup(); });
-                		layer.on('mouseout', function() { layer.closePopup(); });
 		    			if (vm.region == 'region' && feature.properties.Name == 'West') {
 		    				layer.fireEvent('click')
 		    				setTimeout(function() {
