@@ -82,8 +82,8 @@ export class TableViewComponent {
       this.Candidates = data['Candidates'];
 
       vm.result.TotalVotes = this.year == '2018' ? 3178664 : data['ValidVotes'];
-      vm.result.InvalidVotes = 0;
-      vm.result.ResultStatus = this.year == '2018' ? "Provisional" : "Final"
+      vm.result.InvalidVotes = 139427;
+      vm.result.ResultStatus = "Final & Certified"
 
       if (data['Boundaries'].length > 0) {
         vm.Boundaries = [];

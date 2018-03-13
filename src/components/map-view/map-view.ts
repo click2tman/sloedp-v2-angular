@@ -153,8 +153,8 @@ export class MapViewComponent {
 			vm.result.Boundaries = data['Boundaries'];
 			vm.result.TotalVotes = this.year == '2018' ? 3178664 : data['ValidVotes'];
 			
-			vm.result.InvalidVotes = 0;
-			vm.result.ResultStatus = this.year == '2018' ? "Provisional" : "Final"
+			vm.result.InvalidVotes = 139427;
+			vm.result.ResultStatus = "Final & Certified"
 			
 			vm.result.ElectionResults = [];
 			vm.boundary_json = {};
