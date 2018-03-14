@@ -19,6 +19,7 @@ export class TableViewComponent {
   @Input('year') year;
   @Input('region') region;
   @Input('type') type;
+  round: boolean;
 
   Parties: any;
   Candidates: any;
@@ -28,6 +29,7 @@ export class TableViewComponent {
   isNation: boolean;
   Boundary: string;
   noWinner: boolean;
+  isRoundAvailable: boolean;
 
   result: any;
 
@@ -49,6 +51,7 @@ export class TableViewComponent {
   }
 
   ngAfterViewInit() {
+    this.isRoundAvailable = this.type == 'president'
   }
   
   candidatesEnable() {
@@ -62,6 +65,10 @@ export class TableViewComponent {
 
   gotoCandidateDetail(candidate_id) {
     this.navCtrl.push(CandidateProfilePage, { candidate: this.Candidates[candidate_id] });
+  }
+
+  changeRound(round) {
+    this.drawTable(this.Boundary)
   }
 
   drawTable(boundary) {
@@ -82,7 +89,7 @@ export class TableViewComponent {
       this.Candidates = data['Candidates'];
 
       vm.result.TotalVotes = this.year == '2018' ? 3178664 : data['ValidVotes'];
-      vm.result.InvalidVotes = 139427;
+      vm.result.InvalidVotes = this.year == '2018' ? 139427 : 0;
       vm.result.ResultStatus = "Final & Certified"
 
       if (data['Boundaries'].length > 0) {

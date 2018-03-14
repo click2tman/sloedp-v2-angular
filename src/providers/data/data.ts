@@ -66,7 +66,6 @@ export class DataProvider {
 
     return new Promise(resolve => {
       this.loadWholeResults().then(data => {
-        // var type_results = Number(fields.year) >= 2018 ? data[fields.type+'_'+fields.year] : data[fields.type];
         var type_results = data[fields.type];
         this.results[fields.type][fields.year] = {};
         this.results[fields.type][fields.year]['all'] = this.getResultsByYear(type_results, fields.year)
@@ -92,25 +91,15 @@ export class DataProvider {
             callback(null);
         },
         function(callback) {
-          if (!vm.results[fields.type][fields.year][fields.region]) {
-            // var year = Number(fields.year);
-            // if (year >= 2018) {
-            //   if (!vm.results[fields.type][fields.year]['polling_centre'])
-            //     vm.results[fields.type][fields.year]['polling_centre'] = vm.makeResultsByBoundary(vm.results[fields.type][fields.year]['all'], {year: fields.year, region: 'polling_centre'});
-            //   if (!vm.results[fields.type][fields.year]['ward'])
-            //     vm.results[fields.type][fields.year]['ward'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['polling_centre'], "ward", fields.year), {year: fields.year, region: 'ward'});
-            //   if (!vm.results[fields.type][fields.year]['constituency'])
-            //     vm.results[fields.type][fields.year]['constituency'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['ward'], "constituency", fields.year), {year: fields.year, region: 'constituency'});
-            //   if (!vm.results[fields.type][fields.year]['district'])
-            //     vm.results[fields.type][fields.year]['district'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['constituency'], "district", fields.year), {year: fields.year, region: 'district'});
-            //   if (!vm.results[fields.type][fields.year]['region'])
-            //     vm.results[fields.type][fields.year]['region'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['district'], "region", fields.year), {year: fields.year, region: 'region'});
-            //   if (!vm.results[fields.type][fields.year]['nation'])
-            //     vm.results[fields.type][fields.year]['nation'] = vm.makeResultsByBoundary(vm.mergeResultsByBoundary(vm.results[fields.type][fields.year]['region'], "nation", fields.year), {year: fields.year, region: 'nation'});
-            // }
-            // else {
+          if (fields.type == 'president') {
+            if (!vm.results[fields.type][fields.year][fields.region]) { vm.results[fields.type][fields.year][fields.region] = {} }
+            if (!vm.results[fields.type][fields.year][fields.region][fields.round])
+            vm.results[fields.type][fields.year][fields.region][fields.round] = vm.makeResultsByBoundary(vm.results[fields.type][fields.year]['all'], fields);
+          }
+          else {
+            if (!vm.results[fields.type][fields.year][fields.region]) {
               vm.results[fields.type][fields.year][fields.region] = vm.makeResultsByBoundary(vm.results[fields.type][fields.year]['all'], fields);
-            // }
+            }
           }
 
           var total_votes = 0;
@@ -120,11 +109,14 @@ export class DataProvider {
               total_votes += value['votes']
             })
           }
+
+          var results = fields.type == 'president' ? vm.results[fields.type][fields.year][fields.region][fields.round] : vm.results[fields.type][fields.year][fields.region]
+
           callback(null, {
             ValidVotes: total_votes,
             Parties: vm.parties_json,
             Candidates: vm.candidates_json,
-            Boundaries: vm.results[fields.type][fields.year][fields.region]
+            Boundaries: results
           });
         },
       ], function(err, result) {
@@ -167,6 +159,8 @@ export class DataProvider {
 
   makeResultsByBoundary(election_results, fields) {
     var boundary_results = this.getResultsByBoundary(election_results, fields.region);
+    if (fields.type == 'president')
+      boundary_results = this.getResultsByRound(boundary_results, fields.round)
     
     var result_temp_boundaries = {}, temp_candidates = {}, temp_parties = {};
     var missing_parties = [], missing_names = [];
@@ -293,6 +287,12 @@ export class DataProvider {
     var result_type = this.getResultType(boundary);
     return election_results.filter(election_result => {
       return election_result.ResultType == result_type ? election_result : '';
+    })
+  }
+
+  getResultsByRound(election_results, round) {
+    return election_results.filter(function(election_result) {
+      return round == 'second' ? election_result['ElectionRound'] == 'Second Round' : election_result['ElectionRound'] != 'Second Round'
     })
   }
 

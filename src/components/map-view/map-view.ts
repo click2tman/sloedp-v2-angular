@@ -27,11 +27,13 @@ export class MapViewComponent {
 	@Input('year') year;
 	@Input('region') region;
 	@Input('type') type;
+	round: boolean;
 
 	result: any;
 	boundary_json: any;
 
 	noWinner: boolean;
+	isRoundAvailable: boolean;
 
 	// Map Init
   	mapOptions = {
@@ -58,6 +60,7 @@ export class MapViewComponent {
 	}	
 
 	ngAfterViewInit() {
+		this.isRoundAvailable = this.type == 'president'
 	}
 
 	gotoPartyDetail(party) {
@@ -130,12 +133,18 @@ export class MapViewComponent {
 		return this.colorFilter(this.boundary_json[boundary_key].candidates[0].CandidatePoliticalPartyColor)
 	}
 
+	changeRound(round) {
+		this.drawMap()
+	}
+
 	drawMap() {
 		var fields = {
 			year: this.year,
 			type: this.type,
 			region: this.region
 		}
+		if (this.type == 'president')
+			fields['round'] = this.round ? 'second' : 'first'
 
 		var vm = this;
 
@@ -153,7 +162,7 @@ export class MapViewComponent {
 			vm.result.Boundaries = data['Boundaries'];
 			vm.result.TotalVotes = this.year == '2018' ? 3178664 : data['ValidVotes'];
 			
-			vm.result.InvalidVotes = 139427;
+			vm.result.InvalidVotes = this.year == '2018' ? 139427 : 0;
 			vm.result.ResultStatus = "Final & Certified"
 			
 			vm.result.ElectionResults = [];

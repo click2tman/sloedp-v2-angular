@@ -1,5 +1,10 @@
 <!-- Generated template for the MapViewComponent component -->
 <div class="view-container">
+	<div class="round-box" *ngIf="isRoundAvailable">
+		<ion-label text-right>First Round</ion-label>
+		<ion-toggle [(ngModel)]="round" (ionChange)="changeRound(round)"></ion-toggle>
+		<ion-label text-left>Second Round</ion-label>
+	</div>
 	<div class="map"
 		leaflet
 		[leafletLayers]="layers"
