@@ -9,10 +9,10 @@ ppresident=https://electiondata.io/api/results/presidential
 fparliamentary=/Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-parliamentary-polling-centre-results-2018
 pparliamentary=https://electiondata.io/api/results/parliamentary
 
-fcouncillor=/Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-councillor-polling-centre-results-2018
+fcouncillor=/Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-councillor-election-results
 pcouncillor=https://electiondata.io/api/results/councillor
 
-fmayorchairperson=/Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-mayor-chair-polling-centre-results-2018
+fmayorchairperson=/Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-mayor-chair-election-results
 pmayorchairperson=https://electiondata.io/api/results/major-chair
 
 fvillageheadman=/Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-village-headman-election-results
@@ -48,10 +48,6 @@ cp all-president-polling-centre-results-01.json /Users/tamba.s.lamin/DEV/sloedp/
 cp all-president-polling-centre-results-02.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-polling-centre-results-2018/
 #cp all-president-polling-centre-results-03.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-polling-centre-results-2018/
 
-
-
-
-
 #Download Parliamentary results
 rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-parliamentary-polling-centre-results-2018/all-parliamentry-polling-centre-results-*.json
 rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-parliamentary-polling-centre-results-2018/all-parliamentry-polling-centre-results-*.json
@@ -59,13 +55,22 @@ cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-parliamentary-polling-
 wget $pparliamentary/all-parliamentry-polling-centre-results-01.json
 cp all-parliamentry-polling-centre-results-01.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-parliamentary-polling-centre-results-2018/
 
-#Download Mayor/Chair results
-#wget -o $fmayorchairperson/all-mayor-chair-polling-centre-results-01.json $pmayorchairperson/all-mayor-chair-polling-centre-results-01.json
-#wget -o $fmayorchairperson/all-major-chair-election-results.json $pmayorchairperson/all-major-chair-election-results.json
 
 #Download Councillor results
-#wget -o $fcouncillor/all-councillor-polling-centre-results-01.json $pcouncillor/all-councillor-polling-centre-results-01.json
-#wget -o $fmayorchairperson/all-councillor-election-results.json $pmayorchairperson/all-councillor-election-results.json
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-councillor-election-results/all-councillor-election-results.json
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-councillor-election-results/all-councillor-election-results.json
+cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-councillor-election-results
+wget $pmayorchairperson/all-councillor-election-results.json
+cp all-councillor-election-results.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-councillor-election-results/
+
+
+#Download Mayor/Chair results
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-mayor-chair-election-results/all-major-chair-election-results.json
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-mayor-chair-election-results/all-major-chair-election-results.json
+cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-mayor-chair-election-results
+wget $pmayorchairperson/all-major-chair-election-results.json
+cp all-major-chair-election-results.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-mayor-chair-election-results/
+
 
 #Download Polling Centres
 #all-polling-centres-02.json
