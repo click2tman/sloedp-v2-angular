@@ -60,7 +60,7 @@ cp all-parliamentry-polling-centre-results-01.json /Users/tamba.s.lamin/DEV/sloe
 rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-councillor-election-results/all-councillor-election-results.json
 rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-councillor-election-results/all-councillor-election-results.json
 cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-councillor-election-results
-wget $pmayorchairperson/all-councillor-election-results.json
+wget $pcouncillor/all-councillor-election-results.json
 cp all-councillor-election-results.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-councillor-election-results/
 
 
@@ -71,6 +71,12 @@ cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-mayor-chair-election-r
 wget $pmayorchairperson/all-major-chair-election-results.json
 cp all-major-chair-election-results.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-mayor-chair-election-results/
 
+cd /Users/tamba.s.lamin/DEV/sloedp/
+git add --all
+git commit -am"updated results from latest data from platform"
+git pull heroku master
+git commit -am"merged latest code with platform content"
+git push heroku master
 
 #Download Polling Centres
 #all-polling-centres-02.json
