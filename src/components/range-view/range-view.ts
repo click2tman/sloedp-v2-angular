@@ -57,9 +57,25 @@ export class RangeViewComponent {
 	        }
 	      }
 	      else {
-	        this.nationAvailable = true;
-	        this.regionAvailable = true;
-	        this.districtAvailable = true;
+            this.nationAvailable = true;
+            this.regionAvailable = true;
+            this.districtAvailable = true;
+	        switch (type) {
+	          case "president":
+	            break;
+	          case "parliament":
+	            this.constituencyAvailable = true;
+	            break;
+	          case "mayor":
+	            break;
+	          case "councilor":
+	          	this.constituencyAvailable = true;
+	            this.wardAvailable = true;
+	            break;
+	          default:
+	            // code...
+	            break;
+	        }
 	        // this.constituencyAvailable = true;
 	        // this.wardAvailable = true;
 	        // this.pollingCentreAvailable = true;

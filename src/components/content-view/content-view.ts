@@ -166,9 +166,22 @@ export class ContentViewComponent {
         this.nationAvailable = true;
         this.regionAvailable = true;
         this.districtAvailable = true;
-        // this.constituencyAvailable = true;
-        // this.wardAvailable = true;
-        // this.pollingCentreAvailable = true;
+        switch (this.type) {
+          case "president":
+            break;
+          case "parliament":
+            this.constituencyAvailable = true;
+            break;
+          case "mayor":
+            break;
+          case "councilor":
+            this.constituencyAvailable = true;
+            this.wardAvailable = true;
+            break;
+          default:
+            // code...
+            break;
+        }
       }
     }
   }
