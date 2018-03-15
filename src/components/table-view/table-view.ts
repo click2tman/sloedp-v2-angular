@@ -48,6 +48,7 @@ export class TableViewComponent {
       'InvalidVotes': "",
       'VotesPecentage': ""
     };
+    this.isRoundAvailable = false;
   }
 
   ngAfterViewInit() {
@@ -80,6 +81,8 @@ export class TableViewComponent {
       type: this.type,
       region: this.region
     }
+    if (this.type == 'president')
+      fields['round'] = this.round ? 'second' : 'first'
 
     this.isNation = this.region == 'nation';
 
@@ -87,14 +90,17 @@ export class TableViewComponent {
     this.dataService.loadResultsByFields(fields).then(data => {
       this.Parties = data['Parties'];
       this.Candidates = data['Candidates'];
+      this.total_results = data['Boundaries'];
 
       vm.result.TotalVotes = this.year == '2018' ? 3178664 : data['ValidVotes'];
       vm.result.InvalidVotes = this.year == '2018' ? 139427 : 0;
       vm.result.ResultStatus = "Final & Certified"
-
+      
+      vm.Results = [];
+      vm.Boundaries = [];
+      vm.result.ValidVotes = 0;
+      vm.result.VotesPecentage = "0%";
       if (data['Boundaries'].length > 0) {
-        vm.Boundaries = [];
-        vm.total_results = data['Boundaries'];
         vm.Results = data['Boundaries'][0].candidates;
         vm.result.ValidVotes = data['Boundaries'][0].votes;
         if (vm.year == '2018')

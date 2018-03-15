@@ -4,11 +4,11 @@
 		leaflet
 		[leafletLayers]="layers"
 		[leafletOptions]="mapOptions">
-	</div>
-	<div class="round-box" *ngIf="isRoundAvailable">
-		<label>Round: First&nbsp;</label>
-		<ion-toggle [(ngModel)]="round" (ionChange)="changeRound(round)"></ion-toggle>
-		<label>&nbsp;Second</label>
+		<div class="round-box" *ngIf="isRoundAvailable">
+			<label>Round: First&nbsp;</label>
+			<ion-toggle [(ngModel)]="round" (ionChange)="changeRound(round)"></ion-toggle>
+			<label>&nbsp;Second</label>
+		</div>
 	</div>
 	<div *ngIf="!candidatesEnable()" class="no-data">
 		There are no results to display

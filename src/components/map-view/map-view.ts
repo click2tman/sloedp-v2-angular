@@ -57,6 +57,7 @@ export class MapViewComponent {
 		};
 		this.noWinner = true;
 		this.applyMap([]);
+		this.isRoundAvailable = false;
 	}	
 
 	ngAfterViewInit() {
@@ -168,7 +169,6 @@ export class MapViewComponent {
 			vm.result.ElectionResults = [];
 			vm.boundary_json = {};
 			if (vm.result.Boundaries.length > 0) {
-
 				vm.boundary_json = vm.makeBoundaryJson(vm.result.Boundaries)
 				if (vm.result.Boundaries[0].candidates[0]['ValidVotes'] > 0) {
 					vm.noWinner = false;

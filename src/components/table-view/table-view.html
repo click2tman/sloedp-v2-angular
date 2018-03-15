@@ -1,16 +1,16 @@
 <!-- Generated template for the TableViewComponent component -->
 <div>
-	<div class="round-box" *ngIf="isRoundAvailable">
-		<ion-label text-right>First Round</ion-label>
-		<ion-toggle [(ngModel)]="round" (ionChange)="changeRound(round)"></ion-toggle>
-		<ion-label text-left>Second Round</ion-label>
-	</div>
 	<ion-grid *ngIf="!isNation">
 		<ion-row>
 			<ion-col col-3 text-right>Filter: </ion-col>
 			<ion-col col-9><select2 [value]="Boundary" [data]="Boundaries" (valueChanged)="onSelectChange($event)"></select2></ion-col>
 		</ion-row>
 	</ion-grid>
+	<div class="round-box" *ngIf="isRoundAvailable">
+		<label>Round: First&nbsp;</label>
+		<ion-toggle [(ngModel)]="round" (ionChange)="changeRound(round)"></ion-toggle>
+		<label>&nbsp;Second</label>
+	</div>
 
 	<table margin-top>
 		<thead>

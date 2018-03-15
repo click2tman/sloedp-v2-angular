@@ -6,6 +6,28 @@ table-view {
 	.small {
     	font-size: 1rem;
     }
+    .round-box {
+		display: -webkit-box;
+		margin-bottom: 10px;
+		float: right;
+		label {
+		    line-height: 35px;
+    		font-size: 1.5rem;
+		}
+		.toggle-ios {
+			.toggle-icon {
+				background-color: #488aff;
+				&:before {
+					background-color: #488aff
+				}
+			}
+			&.toggle-checked {
+				.toggle-icon {
+					background-color: #e6e6e6;
+				}
+			}
+		}
+	}
 	table {
 		width: 100%;
 		font-size: 1.8rem;
