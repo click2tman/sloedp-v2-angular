@@ -152,6 +152,11 @@ export class ContentViewComponent {
             if (this.region != "district")
               this.region = "district"
             break;
+          case "chairperson":
+            this.districtAvailable = true;
+            if (this.region != "district")
+              this.region = "district"
+            break;
           case "councilor":
             this.wardAvailable = true;
             if (this.region != "ward")
@@ -173,6 +178,8 @@ export class ContentViewComponent {
             this.constituencyAvailable = true;
             break;
           case "mayor":
+            break;
+          case "chairperson":
             break;
           case "councilor":
             this.constituencyAvailable = true;

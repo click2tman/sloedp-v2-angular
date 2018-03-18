@@ -48,6 +48,9 @@ export class RangeViewComponent {
 	          case "mayor":
 	            this.districtAvailable = true;
 	            break;
+	          case "chairperson":
+	            this.districtAvailable = true;
+	            break;
 	          case "councilor":
 	            this.wardAvailable = true;
 	            break;
@@ -67,6 +70,8 @@ export class RangeViewComponent {
 	            this.constituencyAvailable = true;
 	            break;
 	          case "mayor":
+	            break;
+	          case "chairperson":
 	            break;
 	          case "councilor":
 	          	this.constituencyAvailable = true;
