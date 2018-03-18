@@ -8,6 +8,7 @@ import { SplashPage } from '../pages/splash/splash';
 import { PresidentPage } from '../pages/president/president';
 import { ParliamentPage } from '../pages/parliament/parliament';
 import { MayorPage } from '../pages/mayor/mayor';
+import { ChairpersonPage } from '../pages/chairperson/chairperson';
 import { CouncilorPage } from '../pages/councilor/councilor';
 import { AboutPage } from '../pages/about/about';
 // import { VillageHeadmanPage } from '../pages/village-headman/village-headman';
@@ -30,7 +31,8 @@ export class MyApp {
       { title: 'SLOEDP Platform', component: "" },
       { title: 'Presidential Results', component: PresidentPage },
       { title: 'Parliamentary Results', component: ParliamentPage },
-      { title: 'Mayor/Chair Results', component: MayorPage },
+      { title: 'Mayor Results', component: MayorPage },
+      { title: 'Chair Person', component: ChairpersonPage },
       { title: 'Councilor Results', component: CouncilorPage },
       { title: 'About this app', component: AboutPage },
       // { title: 'VillageHeadman', component: VillageHeadmanPage }

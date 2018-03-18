@@ -4,6 +4,7 @@ import { RangeViewComponent } from '../range-view/range-view';
 import { PresidentPage } from '../../pages/president/president';
 import { ParliamentPage } from '../../pages/parliament/parliament';
 import { MayorPage } from '../../pages/mayor/mayor';
+import { ChairpersonPage } from '../../pages/chairperson/chairperson';
 import { CouncilorPage } from '../../pages/councilor/councilor';
 import { AboutPage } from '../../pages/about/about';
 // import { VillageHeadmanPage } from '../../pages/village-headman/village-headman';
@@ -32,7 +33,8 @@ export class HeaderViewComponent {
       { title: 'SLOEDP Platform', component: "" },
       { title: 'Presidential', component: PresidentPage },
       { title: 'Parliamentary', component: ParliamentPage },
-      { title: 'Mayor/Chair', component: MayorPage },
+      { title: 'Mayor', component: MayorPage },
+      { title: 'Chair Person', component: ChairpersonPage },
       { title: 'Councilor', component: CouncilorPage },
       { title: 'About this app', component: AboutPage },
       // { title: 'VillageHeadman', component: VillageHeadmanPage }
