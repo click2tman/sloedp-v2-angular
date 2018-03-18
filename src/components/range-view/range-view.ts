@@ -60,30 +60,35 @@ export class RangeViewComponent {
 	        }
 	      }
 	      else {
-            this.nationAvailable = true;
-            this.regionAvailable = true;
-            this.districtAvailable = true;
 	        switch (type) {
 	          case "president":
+	            this.nationAvailable = true;
+	            this.regionAvailable = true;
+	            this.districtAvailable = true;
 	            break;
 	          case "parliament":
+	            this.nationAvailable = true;
+	            this.regionAvailable = true;
+	            this.districtAvailable = true;
 	            this.constituencyAvailable = true;
 	            break;
 	          case "mayor":
+	            this.districtAvailable = true;
 	            break;
 	          case "chairperson":
+	            this.districtAvailable = true;
 	            break;
 	          case "councilor":
-	          	this.constituencyAvailable = true;
+	            this.nationAvailable = true;
+	            this.regionAvailable = true;
+	            this.districtAvailable = true;
+	            this.constituencyAvailable = true;
 	            this.wardAvailable = true;
 	            break;
 	          default:
 	            // code...
 	            break;
 	        }
-	        // this.constituencyAvailable = true;
-	        // this.wardAvailable = true;
-	        // this.pollingCentreAvailable = true;
 	      }
 	    }
 	}

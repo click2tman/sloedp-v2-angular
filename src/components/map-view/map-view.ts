@@ -203,7 +203,12 @@ export class MapViewComponent {
 
 		    	var geoJSONLayer = geoJSON(geoData, {
 		    		onEachFeature: (feature, layer) => {
-		    			layer.bindPopup(feature.properties.Name)
+		    			var boundary_key = vm.makeKey(feature.properties.Name)
+		    			var boundaryName = feature.properties.Name
+		    			if (vm.type == 'mayor' && vm.boundary_json[boundary_key])
+		    				boundaryName = vm.boundary_json[boundary_key]['name_council']
+		    			layer.bindPopup(boundaryName)
+		    			
 		    			layer.on('click', function() {
 		    				var boundary_key = vm.makeKey(feature.properties.Name)
 		    				var boundary = vm.boundary_json[boundary_key]

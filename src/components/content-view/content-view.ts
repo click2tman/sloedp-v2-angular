@@ -168,20 +168,28 @@ export class ContentViewComponent {
         }
       }
       else {
-        this.nationAvailable = true;
-        this.regionAvailable = true;
-        this.districtAvailable = true;
         switch (this.type) {
           case "president":
+            this.nationAvailable = true;
+            this.regionAvailable = true;
+            this.districtAvailable = true;
             break;
           case "parliament":
+            this.nationAvailable = true;
+            this.regionAvailable = true;
+            this.districtAvailable = true;
             this.constituencyAvailable = true;
             break;
           case "mayor":
+            this.districtAvailable = true;
             break;
           case "chairperson":
+            this.districtAvailable = true;
             break;
           case "councilor":
+            this.nationAvailable = true;
+            this.regionAvailable = true;
+            this.districtAvailable = true;
             this.constituencyAvailable = true;
             this.wardAvailable = true;
             break;
