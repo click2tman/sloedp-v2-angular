@@ -88,7 +88,9 @@ cp all-chairperson-election-results.json /Users/tamba.s.lamin/DEV/sloedp/src/ass
 
 
 cd /Users/tamba.s.lamin/DEV/sloedp/
+git status
 git add --all
+git status
 git commit -am"updated results from latest data from platform"
 git pull heroku master
 git commit -am"merged latest code with platform content"
