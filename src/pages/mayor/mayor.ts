@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs/Subscription';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({segment: 'results/mayor', name: "mayor"})
 @Component({
   selector: 'page-mayor',
   templateUrl: 'mayor.html',

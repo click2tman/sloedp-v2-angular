@@ -24,19 +24,19 @@ export class HeaderViewComponent {
 
   @Input('type') type;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, name: string, component: any}>;
 
   constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public el: ElementRef, public rd: Renderer2) {
     this.isGranularityEnabled = true;
 
     this.pages = [
-      { title: 'SLOEDP Platform', component: "" },
-      { title: 'Presidential', component: PresidentPage },
-      { title: 'Parliamentary', component: ParliamentPage },
-      { title: 'Mayor', component: MayorPage },
-      { title: 'Chairperson', component: ChairpersonPage },
-      { title: 'Councilor', component: CouncilorPage },
-      { title: 'About this app', component: AboutPage },
+      { title: 'SLOEDP Platform', name: "", component: "" },
+      { title: 'Presidential', name: "presidential", component: PresidentPage },
+      { title: 'Parliamentary', name: "parliamentary", component: ParliamentPage },
+      { title: 'Mayor', name: "mayor", component: MayorPage },
+      { title: 'Chairperson', name: "chairperson", component: ChairpersonPage },
+      { title: 'Councilor', name: "councilor", component: CouncilorPage },
+      { title: 'About this app', name: "about", component: AboutPage },
       // { title: 'VillageHeadman', component: VillageHeadmanPage }
     ];
   }
@@ -64,6 +64,6 @@ export class HeaderViewComponent {
     if (page.title == 'SLOEDP Platform')
       location.href = "https://electiondata.io"
     else
-      this.navCtrl.setRoot(page.component);
+      this.navCtrl.setRoot(page.name);
   }
 }

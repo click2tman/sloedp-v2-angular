@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs/Subscription';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({segment: 'results/councilor', name: "councilor"})
 @Component({
   selector: 'page-councilor',
   templateUrl: 'councilor.html',

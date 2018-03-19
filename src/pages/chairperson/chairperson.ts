@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs/Subscription';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({segment: 'results/chairperson', name: "chairperson"})
 @Component({
   selector: 'page-chairperson',
   templateUrl: 'chairperson.html',

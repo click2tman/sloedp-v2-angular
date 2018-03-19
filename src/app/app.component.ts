@@ -21,20 +21,20 @@ export class MyApp {
 
   rootPage: any = SplashPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, name: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'SLOEDP Platform', component: "" },
-      { title: 'Presidential Results', component: PresidentPage },
-      { title: 'Parliamentary Results', component: ParliamentPage },
-      { title: 'Mayor Results', component: MayorPage },
-      { title: 'Chairperson', component: ChairpersonPage },
-      { title: 'Councilor Results', component: CouncilorPage },
-      { title: 'About this app', component: AboutPage },
+      { title: 'SLOEDP Platform', name: "", component: "" },
+      { title: 'Presidential', name: "presidential", component: PresidentPage },
+      { title: 'Parliamentary', name: "parliamentary", component: ParliamentPage },
+      { title: 'Mayor', name: "mayor", component: MayorPage },
+      { title: 'Chairperson', name: "chairperson", component: ChairpersonPage },
+      { title: 'Councilor', name: "councilor", component: CouncilorPage },
+      { title: 'About this app', name: "about", component: AboutPage },
       // { title: 'VillageHeadman', component: VillageHeadmanPage }
     ];
 
@@ -57,6 +57,6 @@ export class MyApp {
     if (page.title == 'SLOEDP Platform')
       location.href = "https://electiondata.io"
     else
-      this.nav.setRoot(page.component);
+      this.nav.setRoot(page.name);
   }
 }
