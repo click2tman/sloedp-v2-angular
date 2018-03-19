@@ -175,9 +175,6 @@ export class ContentViewComponent {
             this.districtAvailable = true;
             break;
           case "parliament":
-            this.nationAvailable = true;
-            this.regionAvailable = true;
-            this.districtAvailable = true;
             this.constituencyAvailable = true;
             break;
           case "mayor":
@@ -187,10 +184,6 @@ export class ContentViewComponent {
             this.districtAvailable = true;
             break;
           case "councilor":
-            this.nationAvailable = true;
-            this.regionAvailable = true;
-            this.districtAvailable = true;
-            this.constituencyAvailable = true;
             this.wardAvailable = true;
             break;
           default:
