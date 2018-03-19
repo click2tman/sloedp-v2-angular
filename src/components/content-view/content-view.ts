@@ -36,6 +36,7 @@ export class ContentViewComponent {
 
   boundary: string;
   mapDisabled: boolean;
+  sidebarDisabled: boolean;
 
   constructor(public dataService: DataProvider, public events: Events) {
     this.mapMode = true;
@@ -46,9 +47,12 @@ export class ContentViewComponent {
     events.subscribe('mapMode', (mapMode) => {
       this.mapMode = mapMode;
     })
+    this.sidebarDisabled = false
   }
 
   ngAfterViewInit() {
+    if (this.type != 'president')
+      this.sidebarDisabled = true
   }
 
   setMapMode(mode) {

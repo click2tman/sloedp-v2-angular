@@ -1,4 +1,8 @@
 content-view {
+	.fullWidth {
+		width: 100%;
+		max-width: 100%;
+	}
 	.viewModeToolbar {
 		padding: 0;
 		padding-bottom: 8px;
