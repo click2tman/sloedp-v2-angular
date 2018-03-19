@@ -1,8 +1,6 @@
 import { Component, Input, ChangeDetectorRef } from '@angular/core';
 import { NavController, LoadingController, Events } from 'ionic-angular/index';
 
-import { PartyProfilePage } from '../../pages/party-profile/party-profile';
-import { CandidateProfilePage } from '../../pages/candidate-profile/candidate-profile';
 import { DataProvider } from '../../providers/data/data';
 
 import { icon, latLng, Layer, marker, geoJSON, tileLayer } from 'leaflet';
@@ -65,11 +63,11 @@ export class MapViewComponent {
 	}
 
 	gotoPartyDetail(party) {
-		this.navCtrl.push(PartyProfilePage, { party: party });
+		this.navCtrl.push('party', {id: party.Acronym});
 	}
 
 	gotoCandidateDetail(candidate_id) {
-		this.navCtrl.push(CandidateProfilePage, { candidate: this.result.Candidates[candidate_id] });
+		this.navCtrl.push('candidate', {id: candidate_id});
 	}
 
 	candidatesEnable() {

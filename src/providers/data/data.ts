@@ -45,6 +45,14 @@ export class DataProvider {
     return this.year ? this.year: "";
   }
 
+  getParty(party) {
+    return this.parties_json[party]
+  }
+
+  getCandidate(candidate_id) {
+    return this.candidates_json[candidate_id]
+  }
+
   loadWholeResults() {
     if ( Object.keys(this.whole_results).length > 0 ) {
       return Promise.resolve(this.whole_results)

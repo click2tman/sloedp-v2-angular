@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular/index';
 import { DataProvider } from '../../providers/data/data';
-import { PartyProfilePage } from '../../pages/party-profile/party-profile';
-import { CandidateProfilePage } from '../../pages/candidate-profile/candidate-profile';
 
 /**
  * Generated class for the TableViewComponent component.
@@ -60,12 +58,11 @@ export class TableViewComponent {
   }
 
   gotoPartyDetail(acronym) {
-    var party = this.Parties[acronym];
-    this.navCtrl.push(PartyProfilePage, { party: party });
+    this.navCtrl.push('party', {id: acronym});
   }
 
   gotoCandidateDetail(candidate_id) {
-    this.navCtrl.push(CandidateProfilePage, { candidate: this.Candidates[candidate_id] });
+    this.navCtrl.push('candidate', {id: candidate_id});
   }
 
   changeRound(round) {
