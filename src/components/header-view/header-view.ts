@@ -34,7 +34,7 @@ export class HeaderViewComponent {
       { title: 'Presidential', component: PresidentPage },
       { title: 'Parliamentary', component: ParliamentPage },
       { title: 'Mayor', component: MayorPage },
-      { title: 'Chair Person', component: ChairpersonPage },
+      { title: 'Chairperson', component: ChairpersonPage },
       { title: 'Councilor', component: CouncilorPage },
       { title: 'About this app', component: AboutPage },
       // { title: 'VillageHeadman', component: VillageHeadmanPage }

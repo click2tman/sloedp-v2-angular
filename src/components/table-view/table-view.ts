@@ -114,7 +114,10 @@ export class TableViewComponent {
         if (data['Boundaries'][0].votes > 0) vm.noWinner = false;
         else vm.noWinner = true;
         for (let row of data['Boundaries']) {
-          vm.Boundaries.push(row.name);
+          if (this.type == 'mayor')
+            vm.Boundaries.push({id: row.name, text: row.name_council});
+          else
+            vm.Boundaries.push({id: row.name, text: row.name});
         }
       }
     });

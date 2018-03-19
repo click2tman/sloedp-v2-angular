@@ -32,7 +32,7 @@ export class MyApp {
       { title: 'Presidential Results', component: PresidentPage },
       { title: 'Parliamentary Results', component: ParliamentPage },
       { title: 'Mayor Results', component: MayorPage },
-      { title: 'Chair Person', component: ChairpersonPage },
+      { title: 'Chairperson', component: ChairpersonPage },
       { title: 'Councilor Results', component: CouncilorPage },
       { title: 'About this app', component: AboutPage },
       // { title: 'VillageHeadman', component: VillageHeadmanPage }

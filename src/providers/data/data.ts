@@ -197,10 +197,14 @@ export class DataProvider {
             longitude: Longitude,
             candidates: {}
           };
+          if (fields.type == 'mayor')
+            result_temp_boundaries[BoundaryKey]['name_council'] = election_result['ElectionCouncil'];
           result_temp_boundaries[BoundaryKey]['candidates'][party] = Object.assign({}, election_result);
         }
         else {
           if (!result_temp_boundaries[BoundaryKey]['candidates'][party]) {
+            if (fields.type == 'mayor' && election_result['ElectionCouncil'] != '')
+              result_temp_boundaries[BoundaryKey]['name_council'] = election_result['ElectionCouncil'];
             result_temp_boundaries[BoundaryKey]['candidates'][party] = Object.assign({}, election_result);
             result_temp_boundaries[BoundaryKey]['votes'] += Votes;
           }
@@ -221,6 +225,8 @@ export class DataProvider {
         BoundaryKey = this.makeKey(BoundaryName);
 
         if (result_temp_boundaries[BoundaryKey] && !result_temp_boundaries[BoundaryKey]['candidates'][party]) {
+          if (fields.type == 'mayor' && election_result['ElectionCouncil'] != '')
+              result_temp_boundaries[BoundaryKey]['name_council'] = election_result['ElectionCouncil'];
           result_temp_boundaries[BoundaryKey]['candidates'][party] = Object.assign({}, election_result);
           result_temp_boundaries[BoundaryKey]['candidates'][party]['ValidVotes'] = Votes;
           result_temp_boundaries[BoundaryKey]['candidates'][party]['CandidateFullName'] = CandidateFullName;
@@ -237,6 +243,8 @@ export class DataProvider {
         BoundaryKey = this.makeKey(BoundaryName);
 
         if (result_temp_boundaries[BoundaryKey] && !result_temp_boundaries[BoundaryKey]['candidates'][party]) {
+          if (fields.type == 'mayor' && election_result['ElectionCouncil'] != '')
+              result_temp_boundaries[BoundaryKey]['name_council'] = election_result['ElectionCouncil'];
           result_temp_boundaries[BoundaryKey]['candidates'][party] = Object.assign({}, election_result);
           result_temp_boundaries[BoundaryKey]['candidates'][party]['ValidVotes'] = Votes;
           result_temp_boundaries[BoundaryKey]['candidates'][party]['CandidateFullName'] = CandidateFullName;
