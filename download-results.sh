@@ -18,22 +18,17 @@ pchairperson=https://electiondata.io/api/results/chairperson
 fmayor=/Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-mayor-election-results
 pmayor=https://electiondata.io/api/results/major
 
-
-api/results/chairperson/all-chairperson-election-results.json
-api/results/major/all-major-election-results.json
-
-
 fvillageheadman=/Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-village-headman-election-results
 pvillageheadman=https://electiondata.io/api/results/
 
 fcandidates=/Users/tamba.s.lamin/DEV/sloedp/src/assets/resources
-pcandidates=
+pcandidates=https://electiondata.io/api/resources/candidates
 
 fparties=/Users/tamba.s.lamin/DEV/sloedp/src/assets/resources
-pparties=
+pparties=https://electiondata.io/api/resources/political-parties
 
 fpollingcentre=/Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/polling-centres
-ppollingcentre=
+ppollingcentre=https://electiondata.io/api/resources/
 
 #Download all Presidential results by national, regional and district
 rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-president-election-results/all-president-election-results.json
@@ -86,6 +81,19 @@ cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-chairperson-election-r
 wget $pchairperson/all-chairperson-election-results.json
 cp all-chairperson-election-results.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-chairperson-election-results/
 
+#Download Candidates
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/resources/all-candidates.json
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/all-candidates.json
+cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/resources
+wget $pcandidates/all-candidates.json
+cp all-candidates.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/
+
+#Download Political Parties
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/resources/all-political-parties.json
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/all-political-parties.json
+cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/resources
+wget $pparties/all-political-parties.json
+cp all-political-parties.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/
 
 cd /Users/tamba.s.lamin/DEV/sloedp/
 git status
