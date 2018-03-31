@@ -55,6 +55,7 @@ export class MapViewComponent {
 		};
 		this.noWinner = true;
 		this.applyMap([]);
+		this.round = true;
 		this.isRoundAvailable = false;
 	}	
 

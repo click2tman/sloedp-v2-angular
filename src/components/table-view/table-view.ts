@@ -37,6 +37,7 @@ export class TableViewComponent {
     this.Parties = {};
     this.Candidates = {};
     this.noWinner = true;
+    this.round = true;
     this.result = {
       'VotesCandidate': "Total",
       'PecentageCandidate': '100%',
