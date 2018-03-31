@@ -7,6 +7,7 @@ import { icon, latLng, Layer, marker, geoJSON, tileLayer } from 'leaflet';
 
 let nationGeoJSON = require("../../assets/maps/nation.json")
 let regionGeoJSON = require("../../assets/maps/region.json")
+let region2018GeoJSON = require("../../assets/maps/region-2018.json")
 let districtGeoJSON = require("../../assets/maps/district.json")
 let district2018GeoJSON = require("../../assets/maps/district-2018.json")
 
@@ -60,7 +61,7 @@ export class MapViewComponent {
 	}	
 
 	ngAfterViewInit() {
-		this.isRoundAvailable = this.type == 'president'
+		this.isRoundAvailable = this.type == 'president' && this.year == '2018'
 	}
 
 	gotoPartyDetail(party) {
@@ -143,7 +144,7 @@ export class MapViewComponent {
 			type: this.type,
 			region: this.region
 		}
-		if (this.type == 'president')
+		if (this.type == 'president' && this.year == '2018')
 			fields['round'] = this.round ? 'second' : 'first'
 
 		var vm = this;
@@ -196,7 +197,8 @@ export class MapViewComponent {
 		    if (vm.region == "nation" || vm.region == "region" || vm.region == "district") {
 		    	var geoData;
 		    	if (vm.region == 'nation') geoData = nationGeoJSON['features']
-		    	if (vm.region == 'region') geoData = regionGeoJSON['features']
+		    	if (vm.region == 'region' && vm.year != '2018') geoData = regionGeoJSON['features']
+		    	if (vm.region == 'region' && vm.year == '2018') geoData = region2018GeoJSON['features']
 		    	if (vm.region == 'district' && vm.year != '2018') geoData = districtGeoJSON['features']
 		    	if (vm.region == 'district' && vm.year == '2018') geoData = district2018GeoJSON['features']
 

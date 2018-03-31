@@ -51,7 +51,7 @@ export class TableViewComponent {
   }
 
   ngAfterViewInit() {
-    this.isRoundAvailable = this.type == 'president'
+    this.isRoundAvailable = this.type == 'president' && this.year == '2018'
   }
   
   candidatesEnable() {
@@ -79,7 +79,7 @@ export class TableViewComponent {
       type: this.type,
       region: this.region
     }
-    if (this.type == 'president')
+    if (this.type == 'president' && this.year == '2018')
       fields['round'] = this.round ? 'second' : 'first'
 
     this.isNation = this.region == 'nation';
