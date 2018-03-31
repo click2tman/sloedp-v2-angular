@@ -38,18 +38,18 @@ wget $ppresident/all-president-election-results.json
 cp all-president-election-results.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-election-results/
 
 #Download all Presidential results by polling centre
-#rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-president-polling-centre-results-2018/all-president-polling-centre-results-*.json
-#rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-polling-centre-results-2018/all-president-polling-centre-results-*.json
-#cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-president-polling-centre-results-2018
-#wget $ppresident/all-president-polling-centre-results-01.json
-#wget $ppresident/all-president-polling-centre-results-02.json
-#wget $ppresident/all-president-polling-centre-results-03.json
-#wget $ppresident/all-president-polling-centre-results-04.json
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-president-polling-centre-results-2018/all-president-polling-centre-results-*.json
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-polling-centre-results-2018/all-president-polling-centre-results-*.json
+cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-president-polling-centre-results-2018
+wget $ppresident/all-president-polling-centre-results-01.json
+wget $ppresident/all-president-polling-centre-results-02.json
+wget $ppresident/all-president-polling-centre-results-03.json
+wget $ppresident/all-president-polling-centre-results-04.json
 
 #Download all Parliamentary results by polling centre
-#cp all-president-polling-centre-results-01.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-parliamentary-election-results/
-#cp all-president-polling-centre-results-02.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-parliamentary-election-results/
-#cp all-president-polling-centre-results-03.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-polling-centre-results-2018/
+cp all-president-polling-centre-results-01.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-parliamentary-election-results/
+cp all-president-polling-centre-results-02.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-parliamentary-election-results/
+cp all-president-polling-centre-results-03.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-president-polling-centre-results-2018/
 
 #Download Parliamentary results
 rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/results/all-parliamentary-election-results/all-parliamentary-election-results.json
@@ -82,11 +82,11 @@ wget $pchairperson/all-chairperson-election-results.json
 cp all-chairperson-election-results.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/results/all-chairperson-election-results/
 
 #Download Candidates
-#rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/resources/all-candidates.json
-#rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/all-candidates.json
-#cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/resources
-#wget $pcandidates/all-candidates.json
-#cp all-candidates.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/resources/all-candidates.json
+rm -rf /Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/all-candidates.json
+cd /Users/tamba.s.lamin/DEV/sloedp/www/assets/resources
+wget $pcandidates/all-candidates.json
+cp all-candidates.json /Users/tamba.s.lamin/DEV/sloedp/src/assets/resources/
 
 #Download Political Parties
 rm -rf /Users/tamba.s.lamin/DEV/sloedp/www/assets/resources/all-political-parties.json
