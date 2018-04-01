@@ -30,6 +30,7 @@ export class TableViewComponent {
   isRoundAvailable: boolean;
 
   result: any;
+  two_rounds = [1996, 2007, 2018];
 
   constructor(public dataService: DataProvider, public navCtrl: NavController) {
     this.Results = [];
@@ -47,11 +48,11 @@ export class TableViewComponent {
       'InvalidVotes': "",
       'VotesPecentage': ""
     };
-    this.isRoundAvailable = false;
   }
 
   ngAfterViewInit() {
-    this.isRoundAvailable = this.type == 'president' && this.year == '2018'
+    this.isRoundAvailable = this.type == 'president' && this.two_rounds.indexOf(this.year) != -1
+    this.round = this.year == 2018;
   }
   
   candidatesEnable() {
@@ -79,7 +80,7 @@ export class TableViewComponent {
       type: this.type,
       region: this.region
     }
-    if (this.type == 'president' && this.year == '2018')
+    if (this.type == 'president' && this.two_rounds.indexOf(this.year) != -1)
       fields['round'] = this.round ? 'second' : 'first'
 
     this.isNation = this.region == 'nation';
