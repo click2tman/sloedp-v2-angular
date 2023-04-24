@@ -12,26 +12,6 @@ app.use('/', httpsRedirect());
 app.use(cors());
 app.options('*', cors());
 
-// imagemin([__dirname + '/www/assets/imgs/*.{jpg,png}'], 'www/assets/imgs', {
-// 	plugins: [
-// 		imageminPngquant({quality: '65-80'})
-// 	]
-// }).then(files => {
-// });
-
-// imagemin([__dirname + '/www/assets/imgs/candidate/*.{jpg,png}'], 'www/assets/imgs/candidate', {
-// 	plugins: [
-// 		imageminPngquant({quality: '65-80'})
-// 	]
-// }).then(files => {
-// });
-
-// imagemin([__dirname + '/www/assets/imgs/party/*.{jpg,png}'], 'www/assets/imgs/party', {
-// 	plugins: [
-// 		imageminPngquant({quality: '65-80'})
-// 	]
-// }).then(files => {
-// });
 
 app.get('*.html', function (req, res, next) {
 	file = fs.readFile(__dirname + '/www' + req.url, 'utf8', function(err, data) {
@@ -69,25 +49,6 @@ app.get('*.woff2', function (req, res, next) {
 	})
 });
 
-// app.get('*.jpg', function(req, res, next) {
-// 	imagemin([__dirname + '/www' + req.url], {
-// 		plugins: [
-// 			imageminJpegtran()
-// 		]
-// 	}).then(files => {
-// 		res.end(files[0].data);
-// 	});
-// })
-
-// app.get('*.png', function(req, res, next) {
-// 	imagemin([__dirname + '/www' + req.url], {
-// 		plugins: [
-// 			imageminPngquant({quality: '65-80'})
-// 		]
-// 	}).then(files => {
-// 		res.end(files[0].data);
-// 	});
-// })
 
 app.use(express.static('www'));
 

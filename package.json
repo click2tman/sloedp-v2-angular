@@ -1,8 +1,8 @@
 {
   "name": "sleodp",
   "version": "0.0.1",
-  "author": "LAM-TECH Consulting",
-  "homepage": "https://lamtech.sl/",
+  "author": "TpISENT (SL) Limited",
+  "homepage": "https://tpisent.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
